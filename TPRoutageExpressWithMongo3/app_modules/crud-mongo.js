@@ -5,6 +5,7 @@ var assert = require('assert');
 //var url = 'mongodb://localhost:27017/test';
 
 // Connection URL
+//const url = 'mongodb://admin:admin@cluster0-shard-00-00-qqsyk.mongodb.net:27017,cluster0-shard-00-01-qqsyk.mongodb.net:27017,cluster0-shard-00-02-qqsyk.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
 const url = 'mongodb://localhost:27017';
 
 // Database Name
@@ -12,6 +13,7 @@ const dbName = 'test';
 
 exports.connexionMongo = function(callback) {
 	MongoClient.connect(url, function(err, client) {
+		console.log("Connected successfully to server");
 		var db = client.db(dbName);
 		
 		assert.equal(null, err);
